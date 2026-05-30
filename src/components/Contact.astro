@@ -11,8 +11,7 @@
     </p>
 
     <form
-      action="https://api.web3forms.com/submit"
-      method="POST"
+      id="contact-form"
       class="space-y-5"
     >
       <input type="hidden" name="access_key" value="b0f52995-9c5a-4d1a-908f-44f387f8c4b0" />
@@ -60,11 +59,24 @@
 
       <button
         type="submit"
+        id="submit-btn"
         class="w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors"
       >
         Send Message
       </button>
     </form>
+
+    <!-- Success message -->
+    <div id="success-msg" class="hidden text-center py-8">
+      <div class="text-4xl mb-4">✓</div>
+      <h4 class="text-xl font-semibold text-white mb-2">Message sent!</h4>
+      <p class="text-slate-400">Thanks for reaching out. I'll get back to you soon.</p>
+    </div>
+
+    <!-- Error message -->
+    <div id="error-msg" class="hidden text-center py-4">
+      <p class="text-red-400 text-sm">Something went wrong. Please try again or email me directly.</p>
+    </div>
 
     <div class="mt-8 flex items-center justify-center gap-4">
       <a
@@ -96,3 +108,40 @@
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successMsg = document.getElementById('success-msg') as HTMLElement;
+  const errorMsg = document.getElementById('error-msg') as HTMLElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    errorMsg.classList.add('hidden');
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        form.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+        form.reset();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch {
+      errorMsg.classList.remove('hidden');
+      submitBtn.textContent = 'Send Message';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
