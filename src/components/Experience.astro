@@ -1,0 +1,86 @@
+---
+const experiences = [
+  {
+    company: "Amazon",
+    role: "Salesforce Developer II",
+    period: "April 2026 — Present",
+    location: "Bengaluru",
+    highlights: [],
+  },
+  {
+    company: "Salesforce",
+    role: "Technical Consultant",
+    period: "August 2024 — March 2026",
+    location: "Pune",
+    highlights: [
+      "Engineered a field service solution by integrating Google's Routes API using Visualforce and LWC, delivering real-time map directions within Salesforce.",
+      "Architected and delivered custom applications using Omnistudio (Omniscripts, Integration Procedures, DataRaptors).",
+      "Developed a custom geocoding service to populate latitude/longitude data, enabling precise location-based functionality for Person Accounts.",
+    ],
+  },
+  {
+    company: "Kotak811",
+    role: "Deputy Manager",
+    period: "April 2023 — July 2024",
+    location: "Mumbai",
+    highlights: [
+      "Architected a cost-saving solution to archive Salesforce files to Amazon S3 using Asynchronous Apex and REST API integration with AWS Lambda.",
+      "Implemented a self-scheduling Apex framework that consolidated multiple jobs, reducing scheduled jobs by 92%.",
+      "Built a REST API integration with AES-256 encryption for secure data-in-transit.",
+      "Launched a custom user onboarding journey on Experience Cloud (LWR) with Omnichannel lead auto-allocation.",
+    ],
+  },
+  {
+    company: "Bajaj Finserv Health",
+    role: "Salesforce Developer",
+    period: "July 2021 — March 2023",
+    location: "Pune",
+    highlights: [
+      "Developed complex product selection and cart functionality from scratch using LWC for the core Sales App.",
+      "Engineered a scalable, event-driven integration using Platform Events and CometD, operating at only 33% of governor limits.",
+      "Innovated a solution using Flows and Platform Events to convert async callouts to synchronous operations.",
+    ],
+  },
+];
+---
+
+<section id="experience" class="py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-sm font-mono text-indigo-400 mb-2">Experience</h2>
+    <h3 class="text-3xl font-bold text-white mb-12">Where I've worked</h3>
+
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="absolute left-0 top-0 bottom-0 w-px bg-slate-800 hidden md:block"></div>
+
+      <div class="space-y-12">
+        {experiences.map((exp) => (
+          <div class="relative md:pl-8">
+            <!-- Timeline dot -->
+            <div class="absolute left-0 top-2 w-2 h-2 rounded-full bg-indigo-500 -translate-x-[3.5px] hidden md:block"></div>
+
+            <div class="group">
+              <div class="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
+                <h4 class="text-xl font-semibold text-white">
+                  {exp.role} <span class="text-indigo-400">@ {exp.company}</span>
+                </h4>
+                <span class="text-sm text-slate-500 font-mono">{exp.period}</span>
+              </div>
+              <p class="text-sm text-slate-500 mb-3">{exp.location}</p>
+              {exp.highlights.length > 0 && (
+                <ul class="space-y-2">
+                  {exp.highlights.map((item) => (
+                    <li class="text-slate-400 text-sm leading-relaxed flex gap-2">
+                      <span class="text-indigo-400 mt-1 shrink-0">▹</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

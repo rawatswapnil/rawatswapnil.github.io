@@ -1,0 +1,48 @@
+---
+const skillCategories = [
+  {
+    title: "Salesforce Development",
+    skills: ["Lightning Web Components", "Apex", "Triggers", "SOQL/SOSL", "Visualforce", "Platform Events"],
+  },
+  {
+    title: "Architecture & Integration",
+    skills: ["REST APIs", "Omnistudio", "Flow Builder", "CometD", "AWS Lambda", "AES-256 Encryption"],
+  },
+  {
+    title: "Cloud & Tools",
+    skills: ["Sales Cloud", "Service Cloud", "Health Cloud", "Data Cloud", "Experience Cloud", "Field Service"],
+  },
+  {
+    title: "Certifications",
+    skills: [
+      "Platform Developer I",
+      "Sales Cloud Consultant",
+      "Service Cloud Consultant",
+      "Data Cloud Consultant",
+      "Health Cloud Accredited Professional",
+    ],
+  },
+];
+---
+
+<section id="skills" class="py-24 px-6">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-sm font-mono text-indigo-400 mb-2">Skills</h2>
+    <h3 class="text-3xl font-bold text-white mb-12">What I work with</h3>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {skillCategories.map((category) => (
+        <div class="p-6 rounded-xl border border-slate-800 bg-slate-900/50 hover:border-slate-700 transition-colors">
+          <h4 class="text-white font-semibold mb-4">{category.title}</h4>
+          <div class="flex flex-wrap gap-2">
+            {category.skills.map((skill) => (
+              <span class="text-xs px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

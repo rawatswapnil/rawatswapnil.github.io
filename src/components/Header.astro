@@ -1,0 +1,35 @@
+---
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
+  { label: "Content", href: "#youtube" },
+  { label: "Contact", href: "#contact" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/50">
+  <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="hover:opacity-80 transition-opacity" aria-label="Home">
+      <img src="/logo.png" alt="Salesforce logo" class="h-8 w-8 rounded-full object-cover" />
+    </a>
+    <ul class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="text-sm text-slate-400 hover:text-white transition-colors"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a
+      href="mailto:rawatswapnil911@gmail.com"
+      class="hidden md:inline-flex text-sm px-4 py-2 rounded-lg border border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 transition-colors"
+    >
+      Get in Touch
+    </a>
+  </nav>
+</header>
