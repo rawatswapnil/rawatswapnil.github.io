@@ -2,27 +2,96 @@
 ---
 
 <section id="contact" class="py-24 px-6">
-  <div class="max-w-xl mx-auto text-center">
-    <h2 class="text-sm font-mono text-indigo-400 mb-2">Contact</h2>
-    <h3 class="text-3xl font-bold text-white mb-6">Let's connect</h3>
-    <p class="text-slate-400 mb-10 leading-relaxed">
+  <div class="max-w-xl mx-auto">
+    <h2 class="text-sm font-mono text-indigo-400 mb-2 text-center">Contact</h2>
+    <h3 class="text-3xl font-bold text-white mb-6 text-center">Let's connect</h3>
+    <p class="text-slate-400 mb-10 leading-relaxed text-center">
       I'm always open to discussing new opportunities, interesting projects,
       or just having a chat about Salesforce development. Feel free to reach out!
     </p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a
-        href="mailto:rawatswapnil911@gmail.com"
-        class="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors"
+
+    <form
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      class="space-y-5"
+    >
+      <input type="hidden" name="access_key" value="b0f52995-9c5a-4d1a-908f-44f387f8c4b0" />
+      <input type="hidden" name="subject" value="New message from portfolio site" />
+      <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+
+      <!-- Honeypot spam prevention -->
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
+      <div>
+        <label for="name" class="block text-sm text-slate-300 mb-1.5">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Your name"
+          class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm text-slate-300 mb-1.5">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+          class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
+        />
+      </div>
+
+      <div>
+        <label for="message" class="block text-sm text-slate-300 mb-1.5">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="5"
+          placeholder="What's on your mind?"
+          class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors"
       >
-        Say Hello
-      </a>
+        Send Message
+      </button>
+    </form>
+
+    <div class="mt-8 flex items-center justify-center gap-4">
       <a
         href="https://www.linkedin.com/in/swapnil-rawat-866475147/"
         target="_blank"
         rel="noopener noreferrer"
-        class="px-8 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-lg font-medium transition-colors"
+        class="text-sm text-slate-400 hover:text-white transition-colors"
       >
         LinkedIn
+      </a>
+      <span class="text-slate-700">•</span>
+      <a
+        href="https://www.youtube.com/@ezforcedotcom"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-slate-400 hover:text-white transition-colors"
+      >
+        YouTube
+      </a>
+      <span class="text-slate-700">•</span>
+      <a
+        href="https://medium.com/@rawatswapnil911"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-slate-400 hover:text-white transition-colors"
+      >
+        Medium
       </a>
     </div>
   </div>
